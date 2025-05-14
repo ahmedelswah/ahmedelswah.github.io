@@ -1,376 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>loop</title>
-
-  <link rel="icon" href="img/loop-removebg-preview.png" />
-
-  <link type="text/css" rel="stylesheet" href="styles/sliderstyle.css" />
-
-  <!-- materialize CSS -->
-  <link rel="stylesheet" href="styles/materialize.css" />
-
-  <link type="text/css" rel="stylesheet" href="styles/styles.css" />
-
-  <!-- material-icons -->
-  <link rel="stylesheet" href="styles/materializecssicons.css" />
-
-  <!-- Compiled and minified JavaScript for Animation on Scroll-->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <!-- font awesome icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فوتوشوب الغلابة 😊 - برنامج إزالة خلفيات الصور وتحريرها</title>
+    <meta name="description" content="فوتوشوب الغلابة - برنامج إزالة خلفيات الصور وتحريرها بسهولة باستخدام واجهة برمجة التطبيقات من RemoveBG">
+    <meta name="keywords" content="فوتوشوب الغلابة, إزالة خلفية, تحرير صور, برنامج, RemoveBG, أحمد السواح">
+    <meta name="author" content="أحمد السواح">
+    <meta property="og:title" content="فوتوشوب الغلابة 😊 - برنامج إزالة خلفيات الصور وتحريرها">
+    <meta property="og:description" content="أداة بسيطة وقوية لإزالة خلفيات الصور وتحريرها بميزات احترافية">
+    <meta property="og:image" content="images/screenshot1.jpg">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:type" content="website">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <nav id="nav">
-    <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo">loop</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="container center hide-on-med-and-down">
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="mobilePhones.html">Mobiles</a>
-        </li>
-        <li>
-          <a href="accessories.html">Accessories</a>
-        </li>
-      </ul>
-      <ul class="right">
-        <ul class="guides" style="border: none">
-          <li class="logged-in" style="display: none" ;>
-            <a href="#" class="modal-trigger tooltipped" data-target="modal-account" data-position="bottom"
-              data-tooltip="Account">
-              <i class="material-icons">account_circle</i>
-            </a>
-          </li>
-          <li class="logged-in" style="display: none" ;>
-            <a href="#" class="tooltipped" id="logout" data-position="bottom" data-tooltip="Logout">
-              <i class="material-icons">logout</i>
-            </a>
-          </li>
-          <li class="logged-in" style="display: none" ;>
-            <a href="#" class="modal-trigger tooltipped" data-target="modal-cart" id="cart" data-position="bottom"
-              data-tooltip="Cart">
-              <i class="material-icons">shopping_cart</i>
-            </a>
-          </li>
-          <li class="logged-out" style="display: none" ;>
-            <a href="#" class="modal-trigger btn black-text" data-target="modal-login">Login</a>
-          </li>
-        </ul>
-      </ul>
-    </div>
-  </nav>
-  <ul class="sidenav center" id="mobile-demo">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="mobilePhones.html">Mobile</a></li>
-    <li><a href="accessories.html">Accessories</a></li>
-  </ul>
-  <main id="main">
-    <div id="modal-login" class="modal modal-fixed-footer">
-      <div class="modal-content signin-content">
-        <form id="login-form">
-          <h4 class="modal-heading">Login</h4>
-          <br />
-          <div class="input-field">
-            <input type="email" id="login-email" autocomplete="off" required />
-            <label for="login-email">Email address</label>
-          </div>
-          <div class="input-field">
-            <input type="password" id="login-password" autocomplete="off" required />
-            <label for="login-password">Your password</label>
-          </div>
-          <p>
-            <a href="#" class="blue-grey-text forget-pass" onclick="forgetpass()">Forget Password?</a>
-          </p>
-          <small class="signin-error center-align errors"></small>
-          <br />
-          <div class="progress login-progress" style="background: none !important; visibility: hidden">
-            <div class="indeterminate blue darken-3"></div>
-          </div>
-          <button class="btn z-depth-0 submit-btn">
-            <i class="material-icons">arrow_forward</i>
-          </button>
-          <p>
-            <a href="#" class="blue-grey-text forget-pass" onclick="newUser()">New User? Sign-up</a>
-          </p>
-        </form>
-        <form class="reset-form" style="display: none">
-          <div class="forget-password-content">
-            <h6>We will send an email will password reset link.</h6>
-            <br />
-            <div class="input-field">
-              <input type="email" class="femail" />
-              <label for="forget-email">Email address</label>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="فوتوشوب الغلابة" class="logo-img">
+                <h1 class="logo-text" data-en="Simple Photoshop 😊" data-ar="فوتوشوب الغلابة 😊">فوتوشوب الغلابة 😊</h1>
             </div>
-            <small class="errors forget-password-error"></small> <br />
-            <button href="" class="btn submit-btn z-depth-0">
-              <i class="material-icons">arrow_forward</i>
-            </button>
-          </div>
-          <h4 style="display: none" class="forget-password-success">
-            Email sent! Check your inbox
-          </h4>
-          <div>
-            <blockquote>
-              <a href="#" onclick="backToLogin()">back to Login</a>
-            </blockquote>
-          </div>
-        </form>
-      </div>
-
-      <!-- Sign up modal -->
-      <div class="modal-content signup-content" style="display: none">
-        <h4 class="modal-heading">Sign up</h4>
-        <br />
-        <form id="signup-form">
-          <div class="input-field">
-            <input type="email" id="signup-email" autocomplete="off" required />
-            <label for="signup-email">Email address</label>
-            <small class="errors email-error"></small>
-          </div>
-          <div class="input-field">
-            <input type="password" id="signup-password" required />
-            <label for="signup-password">Choose password</label>
-            <small class="errors password-error"></small>
-          </div>
-          <div class="input-field">
-            <input type="password" id="signup-password-repeat" required />
-            <label for="signup-password-repeat">Repeat password</label>
-            <small class="errors password-error"></small>
-          </div>
-          <div class="input-field">
-            <input type="tel" id="signup-phone" required />
-            <label for="signup-phone">Phone</label>
-            <small class="errors password-error"></small>
-          </div>
-          <small class="signup-error center-align errors"></small>
-          <br />
-          <div class="progress signup-progress" style="background: none !important; visibility: hidden">
-            <div class="indeterminate blue darken-3"></div>
-          </div>
-          <button class="btn z-depth-0 submit-btn">
-            <i class="material-icons">arrow_forward</i>
-          </button>
-          <p>
-            <a href="#" class="blue-grey-text forget-pass" onclick="oldUser()">Already a User? Sign-in</a>
-          </p>
-        </form>
-      </div>
-    </div>
-
-    <div id="modal-account" class="modal center-align">
-      <div class="modal-content center-align">
-        <h4 class="modal-heading">Account</h4>
-        <div class="row">
-          <p class="account-details"></p>
-          <a href="account.html">More</a>
+            <nav>
+                <ul>
+                    <li><a href="#features" class="nav-link" data-en="Features" data-ar="المميزات">المميزات</a></li>
+                    <li><a href="#screenshots" class="nav-link" data-en="Screenshots" data-ar="لقطات الشاشة">لقطات الشاشة</a></li>
+                    <li><a href="#download" class="nav-link" data-en="Download" data-ar="التحميل">التحميل</a></li>
+                    <li><a href="#about" class="nav-link" data-en="About" data-ar="حول البرنامج">حول البرنامج</a></li>
+                </ul>
+            </nav>
+            <div class="language-switch">
+                <button id="ar-btn" class="active">العربية</button>
+                <button id="en-btn">English</button>
+            </div>
         </div>
-      </div>
-    </div>
+    </header>
 
-    <div id="modal-cart" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <div class="show-cart" style="display: none">
-          <h6 class="modal-heading">Your Shopping Cart</h6>
-          <br />
-          <table class="centered">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Name</th>
-                <th>Remove</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody class="cartWrapper"></tbody>
-            <tr class="bottom-table">
-              <td></td>
-              <td style="text-align: center">
-                <h6>Total Price :</h6>
-              </td>
-              <td>
-                <h6 class="total-price-count"></h6>
-              </td>
-              <td>
-                <a href="checkout.html" class="btn-checkout btn z-depth-0">Checkout</a>
-              </td>
-            </tr>
-          </table>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title" data-en="Remove Image Backgrounds with Ease" data-ar="إزالة خلفيات الصور بسهولة">إزالة خلفيات الصور بسهولة</h2>
+                <p class="hero-description" data-en="A simple yet powerful tool for removing image backgrounds and editing photos with professional features" data-ar="أداة بسيطة وقوية لإزالة خلفيات الصور وتحريرها بميزات احترافية">أداة بسيطة وقوية لإزالة خلفيات الصور وتحريرها بميزات احترافية</p>
+                <a href="#download" class="btn primary-btn" data-en="Download Now" data-ar="تحميل الآن">تحميل الآن</a>
+                <a href="#features" class="btn secondary-btn" data-en="Learn More" data-ar="اعرف المزيد">اعرف المزيد</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/screenshot1.jpg" alt="فوتوشوب الغلابة" class="main-screenshot">
+            </div>
         </div>
-        <div class="hide-cart center" style="display: none">
-          <h5>Your Shopping Cart is Empty</h5>
-          <img src="img/empty-cart.jpg" alt="empty-cart" /> <br />
-          <a href="index.html" class="btn">Shop Now</a>
-        </div>
-      </div>
-    </div>
-    <section>
-      <div id="slider">
-        <figure>
-          <a href="mobilePhones.html"><img src="img/sliders/oneplus8proslide.PNG" alt="Slider" /></a>
-          <a href="mobilePhones.html"><img src="img/sliders/realme6.PNG" alt="Slider" /></a>
-          <a href="mobilePhones.html"><img src="img/sliders/redmi9pro.PNG" alt="Slider" /></a>
-          <a href="mobilePhones.html"><img src="img/sliders/samsungs20.PNG" alt="Slider" /></a>
-        </figure>
-      </div>
     </section>
-  </main>
-  <!-- <section id="highlight-section">
-    <div class="highlight1">
-      <img src="img/highlight/samsunggalaxynote10.png" alt="mobile-highlight" data-aos="fade-left"
-        data-aos-duration="2500" />
-      <div class="highlight-heading">
-        <h5>Samsung Note 10</h5>
-      </div>
-    </div>
-    <div class="highlight1">
-      <div class="highlight-heading">
-        <h5>OnePlus 7t Pro</h5>
-        <p>Lead with speed</p>
-      </div>
-      <img src="img/highlight/oneplus7tpro.png" alt="mobile-highlight" data-aos="fade-right" data-aos-duration="2500" />
-    </div>
-  </section> -->
-  <main id="grids-main">
-    <h5>Hot Accessories</h5>
-    <hr class="grids-main-hr" />
-    <div class="accessories-highlight-main">
-      <div class="row">
-        <div class="col l3 m4 s6" data-aos="zoom-in" data-aos-duration="1000">
-          <a href="accessories.html">
-            <img src="resources/bluetoothecho.png" class="accessories-highlights" alt="" />
-          </a>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title" data-en="Features" data-ar="المميزات">المميزات</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 data-en="Background Removal" data-ar="إزالة الخلفية">إزالة الخلفية</h3>
+                    <p data-en="Remove backgrounds from images with one click using RemoveBG API" data-ar="إزالة خلفيات الصور بنقرة واحدة باستخدام واجهة برمجة التطبيقات من RemoveBG">إزالة خلفيات الصور بنقرة واحدة باستخدام واجهة برمجة التطبيقات من RemoveBG</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 data-en="Custom Backgrounds" data-ar="خلفيات مخصصة">خلفيات مخصصة</h3>
+                    <p data-en="Add solid colors, gradients, or image backgrounds" data-ar="إضافة ألوان عادية أو متدرجة أو صور كخلفيات">إضافة ألوان عادية أو متدرجة أو صور كخلفيات</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-arrows-alt"></i>
+                    </div>
+                    <h3 data-en="Move & Resize" data-ar="تحريك وتغيير الحجم">تحريك وتغيير الحجم</h3>
+                    <p data-en="Easily move and resize objects with intuitive mouse controls" data-ar="تحريك وتغيير حجم العناصر بسهولة باستخدام أدوات الماوس البديهية">تحريك وتغيير حجم العناصر بسهولة باستخدام أدوات الماوس البديهية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 data-en="Rotation" data-ar="التدوير">التدوير</h3>
+                    <p data-en="Rotate objects with precise angle control" data-ar="تدوير العناصر مع التحكم الدقيق في الزاوية">تدوير العناصر مع التحكم الدقيق في الزاوية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <h3 data-en="Watermark" data-ar="العلامة المائية">العلامة المائية</h3>
+                    <p data-en="Add customizable text watermarks with Google Fonts support" data-ar="إضافة علامات مائية نصية قابلة للتخصيص مع دعم خطوط Google">إضافة علامات مائية نصية قابلة للتخصيص مع دعم خطوط Google</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 data-en="Multilingual" data-ar="متعدد اللغات">متعدد اللغات</h3>
+                    <p data-en="Support for Arabic and English languages" data-ar="دعم اللغتين العربية والإنجليزية">دعم اللغتين العربية والإنجليزية</p>
+                </div>
+            </div>
         </div>
-        <div class="col l3 m4 s6" data-aos="zoom-in" data-aos-duration="1000">
-          <a href="accessories.html">
-            <img src="resources/earphone.png" class="accessories-highlights" alt="" />
-          </a>
+    </section>
+
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <h2 class="section-title" data-en="Screenshots" data-ar="لقطات الشاشة">لقطات الشاشة</h2>
+            <div class="screenshot-slider">
+                <div class="screenshot">
+                    <img src="images/screenshot1.jpg" alt="واجهة البرنامج الرئيسية" class="screenshot-img">
+                    <p class="screenshot-caption" data-en="Main interface with tools and workspace" data-ar="الواجهة الرئيسية مع الأدوات ومنطقة العمل">الواجهة الرئيسية مع الأدوات ومنطقة العمل</p>
+                </div>
+                <div class="screenshot">
+                    <img src="images/screenshot2.jpg" alt="نافذة حول البرنامج" class="screenshot-img">
+                    <p class="screenshot-caption" data-en="About dialog showing program information" data-ar="نافذة حول البرنامج تعرض معلومات البرنامج">نافذة حول البرنامج تعرض معلومات البرنامج</p>
+                </div>
+                <div class="screenshot">
+                    <img src="images/screenshot3.jpg" alt="واجهة البرنامج باللغة الإنجليزية" class="screenshot-img">
+                    <p class="screenshot-caption" data-en="English interface with about dialog" data-ar="الواجهة باللغة الإنجليزية مع نافذة حول البرنامج">الواجهة باللغة الإنجليزية مع نافذة حول البرنامج</p>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn prev" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+                <button class="slider-btn next" id="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
         </div>
-        <div class="col l6 m12 s12" data-aos="zoom-in" data-aos-duration="1000">
-          <a href="accessories.html">
-            <img src="resources/mibandedit.png" class="accessories-highlights" alt="" />
-          </a>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title" data-en="Download" data-ar="التحميل">التحميل</h2>
+            <div class="download-options">
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h3 data-en="Windows Version" data-ar="إصدار ويندوز">إصدار ويندوز</h3>
+                    <p data-en="Compatible with Windows 10 and 11" data-ar="متوافق مع ويندوز 10 و 11">متوافق مع ويندوز 10 و 11</p>
+                    <a href="https://github.com/ahmedelswah/ahmedelswah.github.io/releases/download/PhotoshopAlghalaba/PhotoshopAlghalaba.exe" class="btn primary-btn" data-en="Download .exe" data-ar="تحميل .exe">تحميل .exe</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 data-en="Source Code" data-ar="الكود المصدري">الكود المصدري</h3>
+                    <p data-en="Python source code for developers" data-ar="كود المصدر بلغة بايثون للمطورين">كود المصدر بلغة بايثون للمطورين</p>
+                    <a href="https://github.com/ahmedelswah/ahmedelswah.github.io/archive/refs/tags/PhotoshopAlghalaba.zip" class="btn secondary-btn" data-en="Download .zip" data-ar="تحميل .zip">تحميل .zip</a>
+                </div>
+            </div>
+            <div class="requirements">
+                <h3 data-en="Requirements" data-ar="المتطلبات">المتطلبات</h3>
+                <ul>
+                    <li data-en="Python 3.7 or higher" data-ar="بايثون 3.7 أو أعلى">بايثون 3.7 أو أعلى</li>
+                    <li data-en="RemoveBG API key" data-ar="مفتاح API من RemoveBG">مفتاح API من RemoveBG</li>
+                    <li data-en="Internet connection for background removal" data-ar="اتصال بالإنترنت لإزالة الخلفية">اتصال بالإنترنت لإزالة الخلفية</li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col l4 m4 s6" data-aos="zoom-in" data-aos-duration="1000">
-          <a href="accessories.html">
-            <img src="resources/headphone2.png" class="accessories-highlights" alt="" />
-          </a>
+    </section>
+
+    <section id="updates" class="updates">
+        <div class="container">
+            <h2 class="section-title" data-en="Updates" data-ar="التحديثات">التحديثات</h2>
+            <div class="update-container">
+                <div class="update-card latest">
+                    <div class="update-badge" data-en="Latest" data-ar="أحدث إصدار">أحدث إصدار</div>
+                    <div class="update-header">
+                        <h3 data-en="Version 1.2 - June 2023" data-ar="الإصدار 1.2 - يونيو 2023">الإصدار 1.2 - يونيو 2023</h3>
+                        <span class="update-date" data-en="Released: June 15, 2023" data-ar="تاريخ الإصدار: 15 يونيو 2023">تاريخ الإصدار: 15 يونيو 2023</span>
+                    </div>
+                    <div class="update-content">
+                        <h4 data-en="What's New" data-ar="ما الجديد">ما الجديد</h4>
+                        <ul>
+                            <li data-en="Added support for watermarks with Google Fonts" data-ar="إضافة دعم العلامات المائية مع خطوط Google">إضافة دعم العلامات المائية مع خطوط Google</li>
+                            <li data-en="Improved Arabic text support" data-ar="تحسين دعم النص العربي">تحسين دعم النص العربي</li>
+                            <li data-en="Enhanced background changing options" data-ar="تحسين خيارات تغيير الخلفية">تحسين خيارات تغيير الخلفية</li>
+                        </ul>
+                        <h4 data-en="Bug Fixes" data-ar="إصلاحات الأخطاء">إصلاحات الأخطاء</h4>
+                        <ul>
+                            <li data-en="Fixed Arabic text display issues" data-ar="إصلاح مشاكل عرض النص العربي">إصلاح مشاكل عرض النص العربي</li>
+                            <li data-en="Improved memory usage for large images" data-ar="تحسين استخدام الذاكرة للصور الكبيرة">تحسين استخدام الذاكرة للصور الكبيرة</li>
+                        </ul>
+                        <div class="update-download">
+                            <a href="https://github.com/ahmedelswah/ahmedelswah.github.io/releases/download/PhotoshopAlghalaba/PhotoshopAlghalaba.exe" class="btn primary-btn" data-en="Download v1.2" data-ar="تحميل الإصدار 1.2">تحميل الإصدار 1.2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="update-card">
+                    <div class="update-header">
+                        <h3 data-en="Version 1.1 - March 2023" data-ar="الإصدار 1.1 - مارس 2023">الإصدار 1.1 - مارس 2023</h3>
+                        <span class="update-date" data-en="Released: March 10, 2023" data-ar="تاريخ الإصدار: 10 مارس 2023">تاريخ الإصدار: 10 مارس 2023</span>
+                    </div>
+                    <div class="update-content">
+                        <h4 data-en="What's New" data-ar="ما الجديد">ما الجديد</h4>
+                        <ul>
+                            <li data-en="Added English language support" data-ar="إضافة دعم اللغة الإنجليزية">إضافة دعم اللغة الإنجليزية</li>
+                            <li data-en="Improved rotation controls" data-ar="تحسين أدوات التدوير">تحسين أدوات التدوير</li>
+                        </ul>
+                        <h4 data-en="Bug Fixes" data-ar="إصلاحات الأخطاء">إصلاحات الأخطاء</h4>
+                        <ul>
+                            <li data-en="Fixed resize issues with certain image formats" data-ar="إصلاح مشاكل تغيير الحجم مع بعض تنسيقات الصور">إصلاح مشاكل تغيير الحجم مع بعض تنسيقات الصور</li>
+                        </ul>
+                        <div class="update-download">
+                            <a href="https://github.com/ahmedelswah/ahmedelswah.github.io/releases/download/PhotoshopAlghalaba/PhotoshopAlghalaba.exe" class="btn secondary-btn" data-en="Download v1.1" data-ar="تحميل الإصدار 1.1">تحميل الإصدار 1.1</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="update-card">
+                    <div class="update-header">
+                        <h3 data-en="Version 1.0 - January 2023" data-ar="الإصدار 1.0 - يناير 2023">الإصدار 1.0 - يناير 2023</h3>
+                        <span class="update-date" data-en="Released: January 5, 2023" data-ar="تاريخ الإصدار: 5 يناير 2023">تاريخ الإصدار: 5 يناير 2023</span>
+                    </div>
+                    <div class="update-content">
+                        <h4 data-en="Initial Release" data-ar="الإصدار الأولي">الإصدار الأولي</h4>
+                        <ul>
+                            <li data-en="Background removal using RemoveBG API" data-ar="إزالة الخلفية باستخدام واجهة برمجة التطبيقات من RemoveBG">إزالة الخلفية باستخدام واجهة برمجة التطبيقات من RemoveBG</li>
+                            <li data-en="Basic move and resize functionality" data-ar="وظائف التحريك وتغيير الحجم الأساسية">وظائف التحريك وتغيير الحجم الأساسية</li>
+                            <li data-en="Simple rotation controls" data-ar="أدوات تدوير بسيطة">أدوات تدوير بسيطة</li>
+                            <li data-en="Arabic interface" data-ar="واجهة باللغة العربية">واجهة باللغة العربية</li>
+                        </ul>
+                        <div class="update-download">
+                            <a href="https://github.com/ahmedelswah/ahmedelswah.github.io/releases/download/PhotoshopAlghalaba/PhotoshopAlghalaba.exe" class="btn secondary-btn" data-en="Download v1.0" data-ar="تحميل الإصدار 1.0">تحميل الإصدار 1.0</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col l6 m12 s6" data-aos="zoom-in" data-aos-duration="1000">
-          <a href="accessories.html">
-            <img src="resources/realmebuds.PNG" class="accessories-highlights" alt="" />
-          </a>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-en="About" data-ar="حول البرنامج">حول البرنامج</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 data-en="The Story Behind the Name" data-ar="قصة الاسم والفكرة">قصة الاسم والفكرة</h3>
+                    <p data-en="The name 'Simple Photoshop' (or 'Photoshop for the Poor' in Arabic) came from a humorous idea in 2023. I needed a tool to remove image backgrounds and resize objects for e-commerce products, but professional Photoshop required expensive licenses or cracks. That's when the idea for this simple yet effective alternative was born!" data-ar="جاء اسم 'فوتوشوب الغلابة' من فكرة هزلية في عام 2023. كنت بحاجة إلى أداة لإزالة خلفيات الصور وتعديل حجم الكائنات داخل الصور لاستخدامها في التجارة الإلكترونية، لكن برنامج فوتوشوب الاحترافي يتطلب تراخيص باهظة الثمن أو كراك. من هنا جاءت فكرة هذا البديل البسيط والفعال!">جاء اسم 'فوتوشوب الغلابة' من فكرة هزلية في عام 2023. كنت بحاجة إلى أداة لإزالة خلفيات الصور وتعديل حجم الكائنات داخل الصور لاستخدامها في التجارة الإلكترونية، لكن برنامج فوتوشوب الاحترافي يتطلب تراخيص باهظة الثمن أو كراك. من هنا جاءت فكرة هذا البديل البسيط والفعال!</p>
+
+                    <h3 data-en="What is Simple Photoshop?" data-ar="ما هو فوتوشوب الغلابة؟">ما هو فوتوشوب الغلابة؟</h3>
+                    <p data-en="Simple Photoshop is a lightweight image editing tool focused on background removal and basic editing features. It provides a simple interface for users who need quick and effective image editing without the complexity of professional software." data-ar="فوتوشوب الغلابة هو أداة خفيفة لتحرير الصور تركز على إزالة الخلفية وميزات التحرير الأساسية. يوفر واجهة بسيطة للمستخدمين الذين يحتاجون إلى تحرير الصور بسرعة وفعالية دون تعقيد البرامج الاحترافية.">فوتوشوب الغلابة هو أداة خفيفة لتحرير الصور تركز على إزالة الخلفية وميزات التحرير الأساسية. يوفر واجهة بسيطة للمستخدمين الذين يحتاجون إلى تحرير الصور بسرعة وفعالية دون تعقيد البرامج الاحترافية.</p>
+                    <p data-en="The program uses the RemoveBG API for high-quality background removal, allowing users to create professional-looking images with transparent backgrounds in seconds." data-ar="يستخدم البرنامج واجهة برمجة التطبيقات من RemoveBG لإزالة الخلفية بجودة عالية، مما يتيح للمستخدمين إنشاء صور احترافية المظهر بخلفيات شفافة في ثوانٍ.">يستخدم البرنامج واجهة برمجة التطبيقات من RemoveBG لإزالة الخلفية بجودة عالية، مما يتيح للمستخدمين إنشاء صور احترافية المظهر بخلفيات شفافة في ثوانٍ.</p>
+
+                    <h3 data-en="Perfect for E-commerce" data-ar="مثالي للتجارة الإلكترونية">مثالي للتجارة الإلكترونية</h3>
+                    <p data-en="This tool was specifically designed with e-commerce needs in mind. Clean product images with consistent backgrounds are essential for professional online stores, and this program makes creating them quick and easy without requiring expensive software or advanced design skills." data-ar="تم تصميم هذه الأداة خصيصًا مع مراعاة احتياجات التجارة الإلكترونية. صور المنتجات النظيفة ذات الخلفيات المتناسقة ضرورية للمتاجر الإلكترونية الاحترافية، وهذا البرنامج يجعل إنشاءها سريعًا وسهلًا دون الحاجة إلى برامج باهظة الثمن أو مهارات تصميم متقدمة.">تم تصميم هذه الأداة خصيصًا مع مراعاة احتياجات التجارة الإلكترونية. صور المنتجات النظيفة ذات الخلفيات المتناسقة ضرورية للمتاجر الإلكترونية الاحترافية، وهذا البرنامج يجعل إنشاءها سريعًا وسهلًا دون الحاجة إلى برامج باهظة الثمن أو مهارات تصميم متقدمة.</p>
+                </div>
+                <div class="developer-info">
+                    <h3 data-en="Developer" data-ar="المطور">المطور</h3>
+                    <p data-en="Programmed by Ahmed Elsawah" data-ar="برمجة أحمد السواح">برمجة أحمد السواح</p>
+                    <p data-en="Version 1.0" data-ar="الإصدار 1.0">الإصدار 1.0</p>
+                    <p data-en="© 2024 All rights reserved" data-ar="© 2024 جميع الحقوق محفوظة">© 2024 جميع الحقوق محفوظة</p>
+                </div>
+            </div>
         </div>
-        <div class="col l2 s12" data-aos="zoom-in" data-aos-duration="1000">
-          <div class="browse-more">
-            <h5>Browse more</h5>
-            <a href="accessories.html">
-              <img src="img/icons/right-arrow.png" class="accessories-highlights" alt="" />
-            </a>
-          </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="copyright" data-en="© 2024 Simple Photoshop - Programmed by Ahmed Elsawah" data-ar="© 2024 فوتوشوب الغلابة - برمجة أحمد السواح">© 2024 فوتوشوب الغلابة - برمجة أحمد السواح</p>
         </div>
-      </div>
-    </div>
-  </main>
-  <hr />
-  <article id="article">
-    <div class="article-card">
-      <img src="img/icons/free-delivery.png" alt="" />
-      <p>Free Shipping</p>
-    </div>
-    <div class="vertical"></div>
-    <div class="article-card">
-      <img src="img/icons/buy.png" alt="" />
-      <p>Cash On Delivery</p>
-    </div>
-    <div class="vertical"></div>
-    <div class="article-card">
-      <img src="img/icons/online-support.png" alt="" />
-      <p>Support 24/7</p>
-    </div>
-    <div class="vertical"></div>
-    <div class="article-card">
-      <img src="img/icons/pay.png" alt="" />
-      <p>Secure Payment</p>
-    </div>
-  </article>
-  <hr />
+    </footer>
 
-
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Contact Us</h5>
-          <p class="grey-text text-lighten-4 footer-address"></p>
-          <p class="footer-phone"></p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Reach us at</h5>
-          <a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/"><i
-              class="fa fa-facebook"></i></a>
-          <a class="grey-text text-lighten-3" target="_blank" href="https://www.instagram.com/"><i
-              class="fa fa-instagram"></i></a>
-          <a class="grey-text text-lighten-3" target="_blank" href="https://www.twitter.com/"><i
-              class="fa fa-twitter"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        <a href="" target="_blank">Made with ❤️ by Anurag</a>
-        <a class="grey-text text-lighten-4 right" href="#!">service@loop.com</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    AOS.init({});
-  </script>
-
-  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-functions.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
-
-  <script>
-    var firebaseConfig = {
-      apiKey: "AIzaSyCqv05eagwoCTjHiUVWLmTzHl-dDh2X5hI",
-      authDomain: "ecommerce-f108f.firebaseapp.com",
-      databaseURL: "https://ecommerce-f108f.firebaseio.com",
-      projectId: "ecommerce-f108f",
-      storageBucket: "ecommerce-f108f.appspot.com",
-      messagingSenderId: "351954540442",
-      appId: "1:351954540442:web:2f34e401f4a9bb70c34c23",
-      measurementId: "G-DZDK7934TE",
-    };
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-    const functions = firebase.functions();
-
-    console.log(firebase.analytics());
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="js/auth.js"></script>
+    <script src="script.js" defer></script>
 </body>
-
 </html>
